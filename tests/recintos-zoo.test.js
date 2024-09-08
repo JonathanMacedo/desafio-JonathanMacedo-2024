@@ -42,4 +42,9 @@ describe("Recintos do Zoológico", () => {
     expect(resultado.recintosViaveis).toBeFalsy();
   });
 
+  test("Deve rejeitar colocar animais herbívoros com carnívoros", () => {
+    const resultado = new RecintosZoo().analisaRecintos(["MACACO", 1],["LEAO", 1]);
+    expect(resultado.erro).toBe("Animal inválido");
+    expect(resultado.recintosViaveis).toBeFalsy();
+});
 });
