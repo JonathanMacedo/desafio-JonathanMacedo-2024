@@ -36,15 +36,38 @@ describe("Recintos do Zoológico", () => {
       "Recinto 1 (espaço livre: 5 total: 10)"
     );
   });
-  test("Deve rejeitar colocar animais carnívoros com outras especies", () => {
-    const resultado = new RecintosZoo().analisaRecintos(["LEAO", 1], ["MACACO", 1]);
-    expect(resultado.erro).toBe("Animal inválido");
+
+  test("Deve rejeitar colocar animais carnívoros com outras espécies", () => {
+    const resultado = new RecintosZoo().analisaRecintos(["LEÃO", 1], ["MACACO", 1]);
+    expect(resultado.erro).toBe("Incompatibilidade de espécies");
     expect(resultado.recintosViaveis).toBeFalsy();
   });
 
   test("Deve rejeitar colocar animais herbívoros com carnívoros", () => {
-    const resultado = new RecintosZoo().analisaRecintos(["MACACO", 1],["LEAO", 1]);
-    expect(resultado.erro).toBe("Animal inválido");
+    const resultado = new RecintosZoo().analisaRecintos(["MACACO", 1], ["LEÃO", 1]);
+    expect(resultado.erro).toBe("Incompatibilidade de espécies");
     expect(resultado.recintosViaveis).toBeFalsy();
-});
+  });
+
+  test("Deve rejeitar colocar dois animais carnívoros de espécies diferentes", () => {
+    const resultado = new RecintosZoo().analisaRecintos(["LEÃO", 1], ["CROCODILO", 1]);
+    expect(resultado.erro).toBe("Incompatibilidade de espécies");
+    expect(resultado.recintosViaveis).toBeFalsy();
+  });
+  test("Deve aceitar quantidade válida de animais", () => {
+    const resultado = new RecintosZoo().analisaRecintos("MACACO", 3);
+    expect(resultado.erro).toBeFalsy();
+    expect(resultado.recintosViaveis.length).toBeGreaterThan(0);
+  });
+  test("Deve encontrar recintos para múltiplos animais da mesma espécie", () => {
+    const resultado = new RecintosZoo().analisaRecintos("GAZELA", 3);
+    expect(resultado.erro).toBeFalsy();
+    expect(resultado.recintosViaveis.length).toBeGreaterThan(0);
+  });
+
+  test("Deve aceitar animais carnívoros da mesma especie", () => {
+    const resultado = new RecintosZoo().analisaRecintos("LEAO", 2);
+    expect(resultado.erro).toBeFalsy();
+    expect(resultado.recintosViaveis.length).toBeGreaterThan(0);
+  });
 });
