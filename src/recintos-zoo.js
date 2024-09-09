@@ -114,6 +114,16 @@ class RecintosZoo {
       if (animal.carnivoro && outroAnimal.carnivoro && a.especie !== especie) {
         return false;
       }
+
+      // Verificação para hipopótamos só aceitarem outras espécies em savana e rio.
+      if (especie === "HIPOPOTAMO" || a.especie === "HIPOPOTAMO") {
+        if (
+          !biomasRecinto.includes("savana") ||
+          !biomasRecinto.includes("rio")
+        ) {
+          return false;
+        }
+      }
     }
 
     // Verifica se há espaço suficiente no recinto para os animais.
@@ -137,6 +147,11 @@ class RecintosZoo {
 
     // Caso o bioma seja incompatível.
     if (!biomasRecinto.some((bioma) => animal.biomas.includes(bioma))) {
+      return false;
+    }
+
+    // Verificação para macacos não ficarem sozinhos.
+    if (especie === "MACACO" && recinto.animais.length === 0) {
       return false;
     }
 

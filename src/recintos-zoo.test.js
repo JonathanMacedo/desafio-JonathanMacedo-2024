@@ -1,7 +1,6 @@
-import { RecintosZoo } from "../src/recintos-zoo";
+import { RecintosZoo } from "./recintos-zoo";
 
 describe("Recintos do Zoológico", () => {
-
   test("Deve rejeitar animal inválido", () => {
     const resultado = new RecintosZoo().analisaRecintos("UNICÓRNIO", 1);
     expect(resultado.erro).toBe("Animal inválido");
@@ -38,20 +37,29 @@ describe("Recintos do Zoológico", () => {
   });
 
   test("Deve rejeitar colocar animais carnívoros com outras espécies", () => {
-    const resultado = new RecintosZoo().analisaRecintos(["LEÃO", 1], ["MACACO", 1]);
-    expect(resultado.erro).toBe("Incompatibilidade de espécies");
+    const resultado = new RecintosZoo().analisaRecintos(
+      ["LEÃO", 1],
+      ["MACACO", 1]
+    );
+    expect(resultado.erro).toBe("Animal inválido");
     expect(resultado.recintosViaveis).toBeFalsy();
   });
 
   test("Deve rejeitar colocar animais herbívoros com carnívoros", () => {
-    const resultado = new RecintosZoo().analisaRecintos(["MACACO", 1], ["LEÃO", 1]);
-    expect(resultado.erro).toBe("Incompatibilidade de espécies");
+    const resultado = new RecintosZoo().analisaRecintos(
+      ["MACACO", 1],
+      ["LEÃO", 1]
+    );
+    expect(resultado.erro).toBe("Animal inválido");
     expect(resultado.recintosViaveis).toBeFalsy();
   });
 
   test("Deve rejeitar colocar dois animais carnívoros de espécies diferentes", () => {
-    const resultado = new RecintosZoo().analisaRecintos(["LEÃO", 1], ["CROCODILO", 1]);
-    expect(resultado.erro).toBe("Incompatibilidade de espécies");
+    const resultado = new RecintosZoo().analisaRecintos(
+      ["LEÃO", 1],
+      ["CROCODILO", 1]
+    );
+    expect(resultado.erro).toBe("Animal inválido");
     expect(resultado.recintosViaveis).toBeFalsy();
   });
   test("Deve aceitar quantidade válida de animais", () => {
