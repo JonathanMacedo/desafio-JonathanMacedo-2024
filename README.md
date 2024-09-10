@@ -21,7 +21,7 @@
 
 
 
-## Dificuldades encontradas 😓
+## Dificuldades encontradas 🤯
 
 #### Tive algumas dificuldades nesse projeto, sendo elas: 
 * Lidar com o processamento de dados e as variáveis do código.
