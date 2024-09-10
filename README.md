@@ -1,6 +1,6 @@
 # RECINTOS DO ZOO 🦓
 
-#### Este projeto foi realizado com a finalidade de um desafio técnico proposto pela empresa [DB](https://www.linkedin.com/company/dbserver/), onde foi proposto a criação de uma aplicação que ajudasse a encontrar locais para animais que estão de chegada, pensando em seu conforto e no dos animais que já estavam no recinto.
+#### Este projeto foi realizado com a finalidade de um desafio técnico proposto pela empresa [DB](https://www.linkedin.com/company/dbserver/), sendo necessário a criação de uma aplicação que ajudasse a encontrar locais para animais que estão de chegada, pensando em seu conforto e no dos animais que já estavam no recinto.
 
 ## Processo de desenvolvimento da aplicação 🧐
 
