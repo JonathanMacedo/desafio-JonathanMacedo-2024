@@ -27,7 +27,7 @@ describe('Recintos do Zoologico', () => {
         expect(resultado.recintosViaveis.length).toBe(1);
     });
 
-    // Como mencionei no README, tive muita dificuldade em utilizar o Jest, como nunca o utilizei, acabei sofrendo um pouco para fazer os testes rodar, mas em especial esse, que tive que alterar algumas coisas para rodar da forma esperada.
+    // Como mencionei no README, tive muita dificuldade em utilizar o Jest, como nunca o utilizei, acabei sofrendo um pouco para fazer os testes funcionar, mas em especial esse, que tive que alterar algumas coisas para rodar da forma esperada.
     test("Deve encontrar recinto para 2 macacos", () => {
         const resultado = new RecintosZoo().analisaRecintos("MACACO", 2);
         expect(resultado.erro).toBeFalsy();
